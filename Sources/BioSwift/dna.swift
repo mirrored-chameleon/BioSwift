@@ -45,3 +45,19 @@ extension DNASequence: ExpressibleByStringLiteral {
         self.init(bases: value)
     }
 }
+
+extension DNASequence {
+    public func transcribe() -> RNASequence {
+        let rnaBases = self.bases.map { dnaBase -> RNANucleotide in
+            switch dnaBase {
+            case .adenine: return .adenine
+            case .cytosine: return .cytosine
+            case .guanine: return .guanine
+            case .thymine: return .uracil
+            }
+        }
+    
+        let rnaString = String(rnaBases.map {$0.rawValue })
+        return RNASequence(bases: rnaString)
+    }
+}
