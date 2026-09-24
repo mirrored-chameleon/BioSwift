@@ -1,5 +1,5 @@
 //
-//  dna.swift
+//  DNA.swift
 //  BioSwift
 //
 //  Created by Davyn Monagle on 21/9/2026.
