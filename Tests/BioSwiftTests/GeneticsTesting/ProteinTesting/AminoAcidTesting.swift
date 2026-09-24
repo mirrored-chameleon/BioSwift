@@ -13,10 +13,10 @@ import Testing
 struct AminoAcidTests {
     @Test("DNA to RNA to Amino Acid flow working")
     func testFlow() {
-        let dna: DNASequence = "atgcaaataactg"
+        let dna: DNASequence = "atggctcgtaatgactgccatattccgaaatgggtatagaa"
         let rna = dna.transcribe()
         let acids = rna.findAminoAcid()
         
-        #expect(acids == [.methionine, .glutamine, .tyrosine, .stop])
+        #expect(acids == [.methionine, .alanine, .arginine, .asparagine, .asparticAcid, .cysteine, .histidine, .isoleucine, .proline, .lysine, .tryptophan, .valine])
     }
 }

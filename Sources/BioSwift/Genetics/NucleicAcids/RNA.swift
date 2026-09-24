@@ -61,28 +61,50 @@ extension RNASequence {
     
     private func matchCodon(_ codon: String) -> AminoAcid? {
         switch codon {
-        case "GCU", "GCC", "GCA", "GCG": return .alanine
-        case "CGU", "CGC", "CGA", "CGG", "AGA", "AGG": return .arginine
-        case "AAU", "AAC": return .asparagine
-        case "GAU", "GAC": return .asparticAcid
-        case "UGU", "UGC": return .cysteine
-        case "GAA", "GAG": return .glutamicAcid
-        case "CAA", "CAG": return .glutamine
-        case "GGU", "GGC", "GGA", "GGG": return .glycine
-        case "CAU", "CAC": return .histidine
-        case "AUU", "AUC", "AUA": return .isoleucine
-        case "UUA", "UUG", "CUU", "CUC", "CUA", "CUG": return .leucine
-        case "AAA", "AAG": return .lysine
-        case "AUG": return .methionine
-        case "UUU", "UUC": return .phenylalanine
-        case "CCU", "CCC", "CCA", "CCG": return .proline
-        case "UCU", "UCC", "UCA", "UCG", "AGU", "AGC": return .serine
-        case "ACU", "ACC", "ACA", "ACG": return .threonine
-        case "UGG": return .tryptophan
-        case "UAU", "UAC": return .tyrosine // Fixed: UAA removed from here
-        case "GUU", "GUC", "GUA", "GUG": return .valine
-        case "UAA", "UAG", "UGA": return .stop // Standard Stop Codons
-        default: return nil
+        case "GCU", "GCC", "GCA", "GCG":
+            return .alanine
+        case "CGU", "CGC", "CGA", "CGG", "AGA", "AGG":
+            return .arginine
+        case "AAU", "AAC":
+            return .asparagine
+        case "GAU", "GAC":
+            return .asparticAcid
+        case "UGU", "UGC":
+            return .cysteine
+        case "GAA", "GAG":
+            return .glutamicAcid
+        case "CAA", "CAG":
+            return .glutamine
+        case "GGU", "GGC", "GGA", "GGG":
+            return .glycine
+        case "CAU", "CAC":
+            return .histidine
+        case "AUU", "AUC", "AUA":
+            return .isoleucine
+        case "UUA", "UUG", "CUU", "CUC", "CUA", "CUG":
+            return .leucine
+        case "AAA", "AAG":
+            return .lysine
+        case "AUG":
+            return .methionine
+        case "UUU", "UUC":
+            return .phenylalanine
+        case "CCU", "CCC", "CCA", "CCG":
+            return .proline
+        case "UCU", "UCC", "UCA", "UCG", "AGU", "AGC":
+            return .serine
+        case "ACU", "ACC", "ACA", "ACG":
+            return .threonine
+        case "UGG":
+            return .tryptophan
+        case "UAU", "UAC":
+            return .tyrosine
+        case "GUU", "GUC", "GUA", "GUG":
+            return .valine
+        case "UAA", "UAG", "UGA":
+            return .stop
+        default:
+            return nil
         }
     }
 }
