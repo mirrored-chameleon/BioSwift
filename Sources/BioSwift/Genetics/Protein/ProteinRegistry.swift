@@ -5,8 +5,8 @@
 //  Created by Davyn Monagle on 14/10/2026.
 //
 
-protocol Protien {
-    var id: UUID 
+protocol Protein {
+    var id: UUID { get }
     var geneSourceID: String { get }
     var aminoAcidChain: [RNANucleotide] { get }
 
@@ -24,8 +24,14 @@ class ProteinRegistry {
     private var proteinMetadata: [String : String] = [:]
 
     public func registerGene(id: String, dnaStrand: String, proteinName: String) {
+        genomeMap[id] = dnaStrand.uppercased()
+        proteinMetadata[id] = proteinName
+    }
+
+    public func fetchGene(id: String) -> String? {
         return genomeMap[id]
     }
+
     public func fetchProteinName(forGene id: String) -> String? {
         return proteinMetadata[id]
     }
