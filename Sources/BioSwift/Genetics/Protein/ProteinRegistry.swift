@@ -5,16 +5,22 @@
 //  Created by Davyn Monagle on 14/10/2026.
 //
 
+import Foundation
+
+/// Protein protocol that all proteins have to inherit from in order to be stored in the protein registry.
 protocol Protein {
+    /// Unique identifier for each protein
     var id: UUID { get }
     var geneSourceID: String { get }
-    var aminoAcidChain: [RNANucleotide] { get }
+    var aminoAcidChain: [AminoAcid] { get }
 
-    var molecularWeight: Double { get }
-    var isoelectricPoint: Double { get }
-    var hydrophobicRatio: Double { get }
+    var molecularWeight: Double? { get }
+    var isoelectricPoint: Double? { get }
+    var hydrophobicRatio: Double? { get }
 }
 
+/// Singleton reference to access all proteins.
+@MainActor
 class ProteinRegistry {
     public static let shared = ProteinRegistry()
 
