@@ -8,7 +8,7 @@
 import Foundation
 
 /// Protein protocol that all proteins have to inherit from in order to be stored in the protein registry.
-protocol Protein {
+public protocol Protein {
     /// Unique identifier for each protein
     var id: UUID { get }
     var geneSourceID: String { get }
@@ -19,9 +19,17 @@ protocol Protein {
     var hydrophobicRatio: Double? { get }
 }
 
+public protocol IonChannel: Protein {
+    var isOpen: Bool { get set }
+}
+
+extension SodiumChannelProtein: IonChannel {}
+extension PotassiumChannelProtein: IonChannel {}
+
+
 /// Singleton reference to access all proteins.
 @MainActor
-class ProteinRegistry {
+public class ProteinRegistry {
     public static let shared = ProteinRegistry()
 
     private init() {}
